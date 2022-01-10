@@ -1,6 +1,11 @@
-const {
-    remote
-} = require('electron');
+try {
+    const {
+        remote
+    } = require('electron');
+} catch (error) {
+    console.log(error)
+}
+console.log('remote :>> ', remote);
 const {
     Menu,
     MenuItem
@@ -21,10 +26,11 @@ menu.append(new MenuItem({
     type: 'checkbox',
     checked: true
 }));
+
+
 window.addEventListener('contextmenu', (e) => {
     e.preventDefault();
     menu.popup({
         window: remote.getCurrentWindow()
     });
 }, false);
-module.exports = menu

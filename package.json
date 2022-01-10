@@ -4,7 +4,10 @@
   "description": "Учет склада готовой продукции",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "repository": {
     "type": "git",
@@ -13,7 +16,10 @@
   "keywords": [
     "OGO"
   ],
-  "author": "akuma",
+  "author": {
+    "name": "Akuma",
+    "email": "akumapl86@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/akuma-code/OGOapp/issues"
@@ -21,6 +27,14 @@
   "homepage": "https://github.com/akuma-code/OGOapp#readme",
   "dependencies": {
     "electron": "^16.0.6",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63"
   }
 }

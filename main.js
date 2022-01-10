@@ -1,9 +1,9 @@
 const {
     app,
-    BrowserWindow
+    BrowserWindow,
 } = require('electron');
 const path = require('path')
-const menu = require('./public/contextMenu');
+
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -12,9 +12,12 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             enableRemoteModule: true,
-            contextIsolation: false
+            contextIsolation: false,
+            // preload: "./src/mainPreload.js"
+            // preload: path.join(__dirname, "src/mainPreload.js")
         },
-        icon: path.join(__dirname, 'src', 'assets', 'ok01.png'),
+
+        icon: path.join(__dirname, 'src', 'assets', 'ok04.jpg'),
         title: 'OGO',
     });
 
