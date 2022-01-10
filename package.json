@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/akuma-code/OGOapp/issues"
   },
-  "homepage": "https://github.com/akuma-code/OGOapp#readme"
+  "homepage": "https://github.com/akuma-code/OGOapp#readme",
+  "dependencies": {
+    "electron": "^16.0.6"
+  }
 }
