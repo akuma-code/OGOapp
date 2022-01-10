@@ -14,7 +14,7 @@ function createWindow() {
             enableRemoteModule: true,
             contextIsolation: false,
             // preload: "./src/mainPreload.js"
-            // preload: path.join(__dirname, "src/mainPreload.js")
+            preload: path.join(__dirname, "src/mainPreload.js")
         },
 
         icon: path.join(__dirname, 'src', 'assets', 'ok04.jpg'),

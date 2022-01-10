@@ -1,10 +1,7 @@
-try {
-    const {
-        remote
-    } = require('electron');
-} catch (error) {
-    console.log(error)
-}
+const {
+    remote
+} = require('electron');
+
 console.log('remote :>> ', remote);
 const {
     Menu,
