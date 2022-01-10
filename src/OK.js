@@ -34,14 +34,19 @@ class OKbox extends OK {
 class OGODB {
     constructor() {
         this.db = new Map()
+        this.sdb = new Set()
+        this.OKNA = []
         this.setup()
     }
     setup() {
         for (let i = 1; i <= 11; i++) {
             const ok = new OKbox(i, 5);
-            this.db.set(`OK${i}`, ok.amount)
+            this.db.set(`OK${i}`, ok);
+            // console.log(ok);
+            this.sdb.add(ok)
+            this.OKNA.push(ok)
         }
-        return this.db
+        return this
     }
 }
 module.exports = {
