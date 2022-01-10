@@ -57,7 +57,7 @@ class OGODB {
         if (this.OKNA.length !== 0) return
         for (let i = 1; i <= 11; i++) {
             const ok = new OKbox(i, 5);
-            this.db.set(`OK${i}`, ok);
+            this.db.set(`Okno${i}`, ok);
             // console.log(ok);
             this.OKNA.push(ok)
         }
