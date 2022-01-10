@@ -3,19 +3,24 @@
   "version": "1.0.0",
   "description": "Учет склада готовой продукции",
   "main": "main.js",
-  "scripts": {},
+  "scripts": {
+    "start": "electron ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/akuma-code/OGOapp.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "OGO"
+  ],
+  "author": "akuma",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/akuma-code/OGOapp/issues"
   },
   "homepage": "https://github.com/akuma-code/OGOapp#readme",
   "dependencies": {
-    "electron": "^16.0.6"
+    "electron": "^16.0.6",
+    "nodemon": "^2.0.15"
   }
 }
