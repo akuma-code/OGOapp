@@ -1,21 +1,30 @@
+const {
+    ok_template
+} = require('./utility/template')
+
 class OK {
     constructor(okId) {
         this._name = okId;
         this.price
+        this.ID = okId
     }
-    get _name() {
-        return this.name
-    }
+
     get price() {
         return OK.pricelist[this.name]
     }
-    set _name(IdValue) {
-        const id = IdValue.toString()
-        // console.log('id :>> ', id.length);
+
+    get _name() {
+        return this.name
+    }
+
+    set _name(okId) {
+
+        const id = okId.toString()
         if (id.length !== 1) {
             return this.name = "OK" + id;
         } else return this.name = "OK0" + id
     }
+
     static pricelist = {
         OK01: 3700,
         OK02: 3300,
@@ -42,11 +51,6 @@ class OKbox extends OK {
     }
 }
 
-
-
-
-
-
 class OGODB {
     constructor() {
         this.db = new Map()
@@ -64,7 +68,29 @@ class OGODB {
         return this
     }
 }
+
+class OkHTML {
+    constructor(okId, numb = 1) {
+        this.okItem = new OKbox(okId, numb);
+        this.temp = ok_template;
+        this.div = this.getElem()
+    }
+
+    getElem() {
+        const elem = document.createElement('div');
+        const img = document.createElement('img');
+        elem.innerHTML = this.temp;
+        img.src = "../src/assets/" + (this.okItem.name).toLowerCase() + ".jpg";
+        elem.querySelector('[data-db-img]').insertAdjacentElement('afterbegin', img);
+        elem.querySelector('div.db_props').innerHTML = /* html */ "<ul><li>" + this.okItem.price + " руб.</li><li>" + this.okItem.amount + " шт.</li></ul>"
+        return elem
+    }
+}
+
+const OKdb = new OGODB()
 module.exports = {
     OKbox,
-    OGODB
+    OGODB,
+    OKdb,
+    OkHTML
 }

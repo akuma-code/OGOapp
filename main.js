@@ -17,7 +17,7 @@ function createWindow() {
             preload: path.join(__dirname, "src/mainPreload.js")
         },
 
-        icon: path.join(__dirname, 'src', 'assets', 'ok04.jpg'),
+        icon: path.join(__dirname, 'src/assets', 'icon_1.jpg'),
         title: 'OGO',
     });
 
