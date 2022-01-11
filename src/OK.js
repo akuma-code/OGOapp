@@ -81,8 +81,13 @@ class OkHTML {
         const img = document.createElement('img');
         elem.innerHTML = this.temp;
         img.src = "../src/assets/" + (this.okItem.name).toLowerCase() + ".jpg";
-        elem.querySelector('[data-db-img]').insertAdjacentElement('afterbegin', img);
-        elem.querySelector('div.db_props').innerHTML = /* html */ "<ul><li>" + this.okItem.price + " руб.</li><li>" + this.okItem.amount + " шт.</li></ul>"
+
+        elem.querySelector('[data-db-img]')
+            .insertAdjacentElement('afterbegin', img);
+
+        elem.querySelector('div.db_props')
+            .innerHTML = "<ul><li>" + this.okItem.price + " руб.</li><li>" + this.okItem.amount + " шт.</li></ul>";
+
         return elem
     }
 }
