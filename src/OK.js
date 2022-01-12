@@ -6,7 +6,7 @@ class OK {
     constructor(okId) {
         this._name = okId;
         this.price
-        this.ID = okId
+
     }
 
     get price() {
@@ -19,7 +19,7 @@ class OK {
 
     set _name(okId) {
 
-        const id = okId.toString()
+        const id = `${okId}`
         if (id.length !== 1) {
             return this.name = "OK" + id;
         } else return this.name = "OK0" + id
@@ -41,7 +41,7 @@ class OK {
 }
 
 class OKbox extends OK {
-    constructor(okId = Number, numb = 1) {
+    constructor(okId, numb = 1) {
         super(okId)
         this.amount = numb
     }
@@ -72,21 +72,21 @@ class OGODB {
 class OkHTML {
     constructor(okId, numb = 1) {
         this.okItem = new OKbox(okId, numb);
-        this.temp = ok_template;
         this.div = this.getElem()
     }
 
     getElem() {
         const elem = document.createElement('div');
+        elem.className = "db_item"
         const img = document.createElement('img');
-        elem.innerHTML = this.temp;
+        elem.innerHTML = ok_template;
         img.src = "../src/assets/" + (this.okItem.name).toLowerCase() + ".jpg";
 
         elem.querySelector('[data-db-img]')
             .insertAdjacentElement('afterbegin', img);
 
         elem.querySelector('div.db_props')
-            .innerHTML = "<ul><li>" + this.okItem.price + " руб.</li><li>" + this.okItem.amount + " шт.</li></ul>";
+            .innerHTML = "<ul><li>" + this.okItem.name + "</li><li>" + this.okItem.price + " руб.</li><li>" + this.okItem.amount + " шт.</li></ul>";
 
         return elem
     }

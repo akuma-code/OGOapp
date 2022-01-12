@@ -1,79 +1,57 @@
 [
     {
-        "Okno1": {
-            "name": "OK01",
-            "ID": 1,
-            "amount": 5
-        }
+        "name": "OK01",
+        "id": 1,
+        "amount": 5
     },
     {
-        "Okno2": {
-            "name": "OK02",
-            "ID": 2,
-            "amount": 5
-        }
+        "name": "OK02",
+        "id": 2,
+        "amount": 5
     },
     {
-        "Okno3": {
-            "name": "OK03",
-            "ID": 3,
-            "amount": 5
-        }
+        "name": "OK03",
+        "id": 3,
+        "amount": 5
     },
     {
-        "Okno4": {
-            "name": "OK04",
-            "ID": 4,
-            "amount": 5
-        }
+        "name": "OK04",
+        "id": 4,
+        "amount": 5
     },
     {
-        "Okno5": {
-            "name": "OK05",
-            "ID": 5,
-            "amount": 5
-        }
+        "name": "OK05",
+        "id": 5,
+        "amount": 5
     },
     {
-        "Okno6": {
-            "name": "OK06",
-            "ID": 6,
-            "amount": 5
-        }
+        "name": "OK06",
+        "id": 6,
+        "amount": 5
     },
     {
-        "Okno7": {
-            "name": "OK07",
-            "ID": 7,
-            "amount": 5
-        }
+        "name": "OK07",
+        "id": 7,
+        "amount": 5
     },
     {
-        "Okno8": {
-            "name": "OK08",
-            "ID": 8,
-            "amount": 5
-        }
+        "name": "OK08",
+        "id": 8,
+        "amount": 5
     },
     {
-        "Okno9": {
-            "name": "OK09",
-            "ID": 9,
-            "amount": 5
-        }
+        "name": "OK09",
+        "id": 9,
+        "amount": 5
     },
     {
-        "Okno10": {
-            "name": "OK10",
-            "ID": 10,
-            "amount": 5
-        }
+        "name": "OK10",
+        "id": 10,
+        "amount": 5
     },
     {
-        "Okno11": {
-            "name": "OK11",
-            "ID": 11,
-            "amount": 5
-        }
+        "name": "OK11",
+        "id": 11,
+        "amount": 5
     }
 ]

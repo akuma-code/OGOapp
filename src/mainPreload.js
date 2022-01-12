@@ -1,29 +1,52 @@
 const {
     OKdb,
-    OkHTML
+    OkHTML,
+    OKbox,
+    OK
 } = require('../src/OK.js')
 
+
 const {
-    readFileOnDisk
-} = require("../src/utility/disk_handlers")
-const ROOT_PATH = require('../func_utils');
+    ROOT_PATH
+} = require('../func_utils');
 
+const {
+    getdb
+} = require("./disk_handlers")
 
-// readFileOnDisk("skladDB.json") // read database file
-
-function addlist() {
-    const divok = new OkHTML(8, 4)
+function renderHTML(selector, element) {
+    const $out = document.querySelector(selector);
+    $out.insertAdjacentElement("beforeend", element)
+}
+async function addlist() {
     const $out = document.querySelector('#out');
-    const items = OKdb.OKNA || [];
-    console.log('ROOT_PATH :>> ', ROOT_PATH);
-    let toHTML = `<ul>`;
-    items.reduce((prev, ok) => {
-        toHTML += `<li>${ok.name}, осталось: ${ok.amount}</li>`
-    }, '')
+    $out.innerHTML = ""
+    let tmp = [];
+    getdb().then(
+        result => {
+            result.map(dbItem => {
+                const OKtopage = new OkHTML(dbItem.id, dbItem.amount);
+                tmp.push(new OkHTML(dbItem.id, dbItem.amount))
+                // console.log('dbitem :>> ', dbItem)
+                renderHTML('#out', OKtopage.div)
+                // debugger
+            })
+        }, reject => {
+            throw new Error(reject)
+        })
+    // console.log('tmp :>> ', tmp);
 
+
+
+
+    const divok = new OkHTML(8, 4)
+    $out.insertAdjacentElement("beforeend", divok.div)
+    let toHTML = `<ul>`;
+    // items.reduce((prev, ok) => {
+    //     toHTML += `<li>${ok.name}, осталось: ${ok.amount}</li>`
+    // }, '')
     toHTML += "</ul>"
-    $out.insertAdjacentHTML("beforeend", toHTML);
-    $out.insertAdjacentElement("afterend", divok.div);
+    // $out.insertAdjacentHTML("beforeend", toHTML);
 }
 
 document.addEventListener('DOMContentLoaded', addlist)
