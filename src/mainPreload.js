@@ -4,9 +4,9 @@ const {
     OKbox,
     OK
 } = require('../src/OK.js')
-
 const {
-    getDbObj
+    getDbObj,
+    fetchGlobal
 } = require("./dbobj")
 const {
     ROOT_PATH
@@ -14,9 +14,13 @@ const {
 
 const {
     getdb
-} = require("./disk_handlers")
+} = require("./disk_handlers");
+const {
+    dbService,
+    testdb
+} = require('./dbService.js');
 
-function renderHTML(selector, element) {
+function renderElement(selector, element) {
     const $out = document.querySelector(selector);
     $out.insertAdjacentElement("beforeend", element)
 }
@@ -30,7 +34,7 @@ async function addlist() {
                 const OKtopage = new OkHTML(dbItem.id, dbItem.amount);
                 tmp.push(new OkHTML(dbItem.id, dbItem.amount))
                 // console.log('dbitem :>> ', dbItem)
-                renderHTML('#out', OKtopage.div)
+                renderElement('#out', OKtopage.div)
                 // debugger
             })
         })
@@ -38,8 +42,28 @@ async function addlist() {
 
 }
 
+function showStore(elems = []) {
+    const text = ({
+        name,
+        amount
+    }) => `${name}, rest:${amount}`;
+    const div = document.createElement('div');
+    div.classList.add('db_item');
+    elems.forEach(elem => div.innerHTML += text(elem) + '<br>');
+    out.innerHTML = '';
+    return renderElement('#out', div)
+
+
+}
+const maindb = new dbService()
 document.addEventListener('DOMContentLoaded', () => {
-    btn1.onclick = () => addlist();
-    btn2.onclick = () => out.innerHTML = "";
-    btn3.onclick = () => getDbObj()
+    btn1.onclick = () => showStore(maindb.storage);
+    btn2.onclick = () => {
+        maindb.setdb()
+    }
+
+    btn3.onclick = () => {
+        maindb.storage[0].amount -= 1;
+        showStore(maindb.storage)
+    }
 })

@@ -1,7 +1,10 @@
 const {
     readFile,
-    writeFile
-} = require('../func_utils.js')
+    writeFile,
+    ROOT_PATH
+} = require('../func_utils.js');
+
+
 
 function getDbObj() {
     const dbOBJ = readFile("sklad/storeOKobj").then(
@@ -18,6 +21,27 @@ function getDbObj() {
     }
 }
 
+
+
+function fetchGlobal() {
+    const pathToFile = "file:///C:/Users/User/Desktop/VS%20Code%20UserFiles/JS%20Projects/dbOKNA.json";
+
+    const data = fetch(pathToFile).then(
+        result => {
+            const content = result.json();
+            console.log({
+                content
+            });
+            // console.log('content :>> ', content);
+            return content
+
+        },
+        err => console.log(err.message)
+    );
+    console.log('data :>> ', data);
+
+}
 module.exports = {
-    getDbObj
+    getDbObj,
+    fetchGlobal
 }
