@@ -6,7 +6,6 @@ class OK {
     constructor(okId) {
         this._name = okId;
         this.price
-
     }
 
     get price() {
@@ -18,7 +17,6 @@ class OK {
     }
 
     set _name(okId) {
-
         const id = `${okId}`
         if (id.length !== 1) {
             return this.name = "OK" + id;

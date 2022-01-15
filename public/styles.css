@@ -10,4 +10,5 @@
     width: 600px;
     height: 800px;
     gap: 5px;
+    overflow-y: auto;
 }

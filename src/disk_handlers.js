@@ -4,9 +4,10 @@ const {
 } = require("../func_utils.js");
 
 const path = require('path')
-async function getdb() {
 
-    const dbContent = await readFile("sklad/skladDB");
+function getdb() {
+
+    const dbContent = readFile("sklad/skladDB");
     // console.log('dbContent :>> ', dbContent);
     return dbContent
 }

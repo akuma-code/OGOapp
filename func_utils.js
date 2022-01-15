@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 const path = require('path');
-const fileURLToPAth = require('url')
+const fileURLToPath = require('url')
 const ROOT_PATH = path.join(__dirname);
 const SKLAD_PATH = path.join(ROOT_PATH, "sklad");
 

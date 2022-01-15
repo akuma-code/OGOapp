@@ -5,7 +5,9 @@ const {
     OK
 } = require('../src/OK.js')
 
-
+const {
+    getDbObj
+} = require("./dbobj")
 const {
     ROOT_PATH
 } = require('../func_utils');
@@ -31,22 +33,13 @@ async function addlist() {
                 renderHTML('#out', OKtopage.div)
                 // debugger
             })
-        }, reject => {
-            throw new Error(reject)
         })
     // console.log('tmp :>> ', tmp);
 
-
-
-
-    const divok = new OkHTML(8, 4)
-    $out.insertAdjacentElement("beforeend", divok.div)
-    let toHTML = `<ul>`;
-    // items.reduce((prev, ok) => {
-    //     toHTML += `<li>${ok.name}, осталось: ${ok.amount}</li>`
-    // }, '')
-    toHTML += "</ul>"
-    // $out.insertAdjacentHTML("beforeend", toHTML);
 }
 
-document.addEventListener('DOMContentLoaded', addlist)
+document.addEventListener('DOMContentLoaded', () => {
+    btn1.onclick = () => addlist();
+    btn2.onclick = () => out.innerHTML = "";
+    btn3.onclick = () => getDbObj()
+})
