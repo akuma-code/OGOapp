@@ -1,5 +1,6 @@
 const {
     createFile,
+    createDBFile,
     ROOT_PATH
 } = require("../func_utils")
 
@@ -17,10 +18,10 @@ class dbService {
         this.db
     }
 
-    DB_PATH = "file:///C:/Users/User/Desktop/VS%20Code%20UserFiles/JS%20Projects/aDataBase";
+    DB_PATH = "file://192.168.0.75/Work/foto/Фото%20объектов/APP/db/";
 
     get db() {
-        const filePath = `${this.DB_PATH}/dbOKNA.json`;
+        const filePath = `${this.DB_PATH}/okdb.json`;
         const getdata = fetch(filePath).then(result => {
             const data = result.json();
             data.then(db => db.forEach(dbo => {
@@ -52,7 +53,7 @@ class dbService {
 
     setdb(storage = this.storage) {
 
-        createFile(storage, `src/db/newdb`, "json")
+        createDBFile(storage, `okdb`, "json")
         console.log('store :>> ', storage);
         return
     }

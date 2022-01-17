@@ -24,7 +24,7 @@ function getDbObj() {
 
 
 function fetchGlobal() {
-    const pathToFile = "file:///C:/Users/User/Desktop/VS%20Code%20UserFiles/JS%20Projects/dbOKNA.json";
+    const pathToFile = "file://192.168.0.75/Work/foto/Фото%20объектов/APP/db/okdb.json";
 
     const data = fetch(pathToFile).then(
         result => {

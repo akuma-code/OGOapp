@@ -40,6 +40,26 @@ async function createFile(fileData, filePath, fileExt = 'json') {
         throw err
     }
 }
+async function createDBFile(fileData, filePath, fileExt = 'json') {
+    const DB_PATH = `file://192.168.0.75/Work/foto/Фото%20объектов/APP/db/`
+    const fileName = `${DB_PATH}/${filePath}.${fileExt}`
+
+    try {
+        if (fileExt === 'json') {
+            await fs.writeFile(fileName, JSON.stringify(fileData, null, 2))
+        } else {
+            await fs.writeFile(fileName, fileData)
+        }
+    } catch (err) {
+        if (notExist(err)) {
+            await fs.mkdir(truncPath(`${DB_PATH}/${filePath}`), {
+                recursive: true
+            })
+            return createFile(fileData, filePath, fileExt)
+        }
+        throw err
+    }
+}
 async function removeFile(filePath, fileExt = 'json') {
     const fileName = `${ROOT_PATH}/${filePath}.${fileExt}`
 
@@ -110,5 +130,6 @@ module.exports = {
     createFile,
     getFileNames,
     removeDir,
-    removeFile
+    removeFile,
+    createDBFile
 }

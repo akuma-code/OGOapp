@@ -56,6 +56,7 @@ function showStore(elems = []) {
 
 }
 const maindb = new dbService()
+
 document.addEventListener('DOMContentLoaded', () => {
     btn1.onclick = () => showStore(maindb.storage);
     btn2.onclick = () => {
