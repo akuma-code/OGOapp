@@ -27,8 +27,9 @@
   "homepage": "https://github.com/akuma-code/OGOapp#readme",
   "dependencies": {
     "electron": "^16.0.6",
-    "nodemon": "^2.0.15",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.63",

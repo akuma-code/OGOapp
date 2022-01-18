@@ -19,10 +19,12 @@ class dbService {
     }
 
     DB_PATH = "file://192.168.0.75/Work/foto/Фото%20объектов/APP/db/";
+    DB_ROOT_PATH = `${ROOT_PATH}/src/db`;
 
     get db() {
-        const filePath = `${this.DB_PATH}/okdb.json`;
-        const getdata = fetch(filePath).then(result => {
+        const filePath = `${this.DB_ROOT_PATH}/okdb.json`;
+
+        fetch(filePath).then(result => {
             const data = result.json();
             data.then(db => db.forEach(dbo => {
                 const {
@@ -33,8 +35,10 @@ class dbService {
             }));
             return data
         });
-        return getdata
+        return this.storage
     }
+
+
     getdb(filename) {
         const filePath = `${ROOT_PATH}/src/db/${filename}.json`;
         const getdata = fetch(filePath).then(result => {
@@ -51,10 +55,10 @@ class dbService {
         return getdata
     }
 
-    setdb(storage = this.storage) {
+    savedb(storage = this.storage) {
 
-        createDBFile(storage, `okdb`, "json")
-        console.log('store :>> ', storage);
+        createFile(storage, `src/db/okdb`, "json")
+        console.log('saved :>> ', storage);
         return
     }
 

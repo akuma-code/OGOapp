@@ -43,7 +43,7 @@ async function createFile(fileData, filePath, fileExt = 'json') {
 async function createDBFile(fileData, filePath, fileExt = 'json') {
     const DB_PATH = `file://192.168.0.75/Work/foto/Фото%20объектов/APP/db`
     const fileName = `${DB_PATH}/${filePath}.${fileExt}`
-    debugger
+
 
     try {
         if (fileExt === 'json') {
