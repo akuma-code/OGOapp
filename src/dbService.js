@@ -63,13 +63,8 @@ class dbService {
 
     savedb(storage = this.storage) {
 
-<<<<<<< HEAD
-        createFile(storage, `src/db/newdb`, "json")
-        console.log('saved store :>> ', storage);
-=======
         createFile(storage, `src/db/okdb`, "json")
         console.log('saved :>> ', storage);
->>>>>>> 29ee3fd4bd8a05944bbd8d02262b7a09eef5606c
         return
     }
 

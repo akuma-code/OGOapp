@@ -82,12 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showStore(maindb.storage)
     };
     btn2.onclick = () => {
-<<<<<<< HEAD
-        maindb.setdb();
-        showStore(maindb.storage)
-=======
         maindb.savedb()
->>>>>>> 29ee3fd4bd8a05944bbd8d02262b7a09eef5606c
     }
 
     btn3.onclick = () => {
