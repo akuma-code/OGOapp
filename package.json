@@ -5,10 +5,10 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "server": "nodemon Server.js",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "server": "nodemon Server.js"
+    "publish": "electron-forge publish"
   },
   "repository": {
     "type": "git",
