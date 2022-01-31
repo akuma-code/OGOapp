@@ -57,13 +57,29 @@ function showStore(elems = []) {
 }
 const maindb = new dbService()
 document.addEventListener('DOMContentLoaded', () => {
-    btn1.onclick = () => showStore(maindb.storage);
+
+    showStore(maindb.storage)
+    btn1.onclick = () => {
+        maindb.storage[0].amount += 1
+        showStore(maindb.storage)
+    };
     btn2.onclick = () => {
-        maindb.setdb()
+        maindb.setdb();
+        showStore(maindb.storage)
     }
 
     btn3.onclick = () => {
         maindb.storage[0].amount -= 1;
         showStore(maindb.storage)
+    }
+
+    btn4.onclick = () => {
+        maindb.getdb("newdb").then(
+            () => {
+                showStore(maindb.storage);
+                console.table(maindb.storage);
+            })
+        // console.log('maindb :>> ', maindb);
+
     }
 })

@@ -36,15 +36,21 @@ class dbService {
     }
     getdb(filename) {
         const filePath = `${ROOT_PATH}/src/db/${filename}.json`;
+
         const getdata = fetch(filePath).then(result => {
             const data = result.json();
-            data.then(db => db.forEach(dbo => {
-                const {
-                    name,
-                    amount
-                } = dbo
-                this.storage.push(new dbObject(name, amount))
-            }));
+            data.then(
+                db => {
+                    this.storage = []
+                    db.forEach(dbo => {
+                        const {
+                            name,
+                            amount
+                        } = dbo
+                        this.storage.push(new dbObject(name, amount))
+                    })
+                });
+            console.log('storage :>> ', this.storage);
             return data
         });
         return getdata
@@ -53,7 +59,7 @@ class dbService {
     setdb(storage = this.storage) {
 
         createFile(storage, `src/db/newdb`, "json")
-        console.log('store :>> ', storage);
+        console.log('saved store :>> ', storage);
         return
     }
 
