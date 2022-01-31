@@ -1,7 +1,11 @@
 [
   {
     "name": "OK01",
+<<<<<<< HEAD
     "amount": 8
+=======
+    "amount": -2
+>>>>>>> 29ee3fd4bd8a05944bbd8d02262b7a09eef5606c
   },
   {
     "name": "OK02",

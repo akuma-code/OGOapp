@@ -20,6 +20,23 @@ const {
     testdb
 } = require('./dbService.js');
 
+const express = require('express');
+const appServer = express();
+const port = 3000;
+const logger = function (req, res, next) {
+    console.log(res)
+    next()
+}
+
+appServer.use(logger)
+appServer.get('/', (req, res) => {
+    res.send('Server running!')
+})
+
+appServer.listen(port, () => {
+    console.log(`listen port 3000 at localhost`)
+})
+
 function renderElement(selector, element) {
     const $out = document.querySelector(selector);
     $out.insertAdjacentElement("beforeend", element)
@@ -56,6 +73,7 @@ function showStore(elems = []) {
 
 }
 const maindb = new dbService()
+
 document.addEventListener('DOMContentLoaded', () => {
 
     showStore(maindb.storage)
@@ -64,8 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
         showStore(maindb.storage)
     };
     btn2.onclick = () => {
+<<<<<<< HEAD
         maindb.setdb();
         showStore(maindb.storage)
+=======
+        maindb.savedb()
+>>>>>>> 29ee3fd4bd8a05944bbd8d02262b7a09eef5606c
     }
 
     btn3.onclick = () => {
