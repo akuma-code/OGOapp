@@ -6,11 +6,10 @@ const {
 class okServer {
     constructor() {
         this.store = {};
-        this.loadDB("serverDB")
+        this.loadDB("serverDB").bind(this)
     }
     loadDB(filename) {
-        const file_db = `${ROOT_PATH}/src/db/${filename}.json`;
-        readFile(`${filename}`)
+
 
         return
     }
